@@ -33,18 +33,14 @@ app.get('/new', function(req, res){
 
 
 app.post("/users", function(req, res) {
-    request({
-        method: "POST",
-        uri: url,
-        formData: {
-            firstname: req.body.first_name,
-            lastname: req.body.last_name,
-            email: req.body.email,
-            username: req.body.username
-        }
-    }, function(error, response, body) {
-        res.redirect("/all");
-    });
+  console.log(req.body)
+  request({
+      method: "POST",
+      uri: url,
+      formData: req.body.user
+  }, function(error, response, body) {
+      res.redirect("/all");
+  });
 });
 
 app.listen(3000)
