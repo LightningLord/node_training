@@ -15,12 +15,23 @@
 var express = require('express');
 var app = express();
 
-app.get('/', function (req, res) {
-    res.send('Hello Jason!');
+app.set("view engine", "ejs");
+
+app.get('/', function(req, res) {
+    res.render("index", {
+        greeting: "Hello World! Jason is really awesome!"
+    });
 });
 
+// app.get("/greet/:name/:lastname", function(req, res) {
+//     res.send("<h1>Hello " + req.params.name + " " + req.params.lastname + "</h1>");
+// });
+
 app.get("/greet/:name/:lastname", function(req, res) {
-    res.send("<h1>Hello " + req.params.name + " " + req.params.lastname + "</h1>");
+    res.render("greet", {
+      name: req.params.name,
+      lastname: req.params.lastname
+    });
 });
 
 
