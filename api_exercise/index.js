@@ -5,6 +5,8 @@ var bodyParser = require("body-parser");
 app.use(bodyParser.urlencoded({
     extended:true
 }));
+var methodOverride = require("method-override");
+app.use(methodOverride("_method"));
 app.set("view engine", "ejs");
 app.get('/', function(req,res){
   res.send("hello, world")
@@ -45,5 +47,26 @@ app.post("/users", function(req, res) {
       res.redirect("/all");
   });
 });
+
+app.get("/users/:id/edit", function(req, res){
+  request(url +"/" + req.params.id, function(error, response, body){
+    res.render("edit", {
+      user: JSON.parse(body)
+    })
+  })
+})
+
+app.put("/users/:id", function(req, res){
+  request({
+      method: "PUT",
+      uri: url + "/" + req.params.id,
+      formData: req.body.user
+  }, function(error, response, body) {
+      if(error){
+        //do something
+      }
+      res.redirect("/all");
+  });
+})
 
 app.listen(3000)
