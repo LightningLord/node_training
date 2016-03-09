@@ -14,7 +14,7 @@
 
 var express = require('express');
 var app = express();
-
+var request = require('request');
 app.set("view engine", "ejs");
 
 app.get('/', function(req, res) {
@@ -34,8 +34,18 @@ app.get("/greet/:name/:lastname", function(req, res) {
     });
 });
 
+app.get("/google", function(req, res){
+  request('http://www.google.com', function (error, response, body) {
+    if (!error && response.statusCode == 200) {
+        console.log(body); // Print the google web page.
+    }
+    res.render("google", {
+      content: body
+    })
+  });
+})
 
-app.listen(3000)
+app.listen(3000);
 // var server = app.listen(3000, function () {
 //     var host = server.address().address;
 //     var port = server.address().port;
