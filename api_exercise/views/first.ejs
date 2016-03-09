@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>First Names</title>
+</head>
+<body>
+  <table border="1">
+    <tr>
+      <th>First Name</th>
+    </tr>
+  <% for (var i = 0; i < users.length; i++) {%>
+    <% var elt = users[i] %>
+    <tr>
+      <td><p><%= elt.firstname %></p></td>
+    </tr>
+  <% } %>
+  </table>
+</body>
+</html>
