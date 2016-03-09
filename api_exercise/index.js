@@ -39,6 +39,9 @@ app.post("/users", function(req, res) {
       uri: url,
       formData: req.body.user
   }, function(error, response, body) {
+      if(error){
+        //do something
+      }
       res.redirect("/all");
   });
 });
