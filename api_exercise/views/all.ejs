@@ -5,27 +5,28 @@
 </head>
 <body>
   <table border="1">
-    <tr>
-      <th>First Name</th>
-      <th>Last Name</th>
-      <th>Email</th>
-      <th>Username</th>
-      <th>Instance Id</th>
-      <th>Created</th>
-      <th>Updated</th>
-    </tr>
-  <% for (var i = 0; i < users.length; i++) {%>
-    <% var elt = users[i] %>
-    <tr>
-      <td><p><%= elt.firstname %></p></td>
-      <td><p><%= elt.lastname %></p></td>
-      <td><p><%= elt.email %></p></td>
-      <td><p><%= elt.username %></p></td>
-      <td><p><%= elt.instance_id %></p></td>
-      <td><p><%= elt.created_at %></p></td>
-      <td><p><%= elt.updated_at %></p></td>
-    </tr>
-  <% } %>
+    <thead>
+      <tr>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Email</th>
+        <th>Username</th>
+        <th>Instance Id</th>
+        <th>Created</th>
+        <th>Updated</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% for (var i = 0; i < users.length; i++) {%>
+        <% var elt = users[i] %>
+        <tr>
+          <td><p><%= elt.firstname %></p></td>
+          <td><p><%= elt.lastname %></p></td>
+          <td><p><%= elt.email %></p></td>
+          <td><p><%= elt.username %></p></td>
+        </tr>
+      <% } %>
+    </tbody>
   </table>
 </body>
 </html>

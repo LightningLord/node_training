@@ -5,8 +5,8 @@ app.set("view engine", "ejs");
 app.get('/', function(req,res){
   res.send("hello, world")
 })
-var url = 'https://myapi.profstream.com/api/23afb1/persons'
 var request_and_render = function(template_name, res){
+  var url = 'https://myapi.profstream.com/api/23afb1/persons'
   request(url, function(error, response, body){
     res.render(template_name, {
       users: JSON.parse(body)
