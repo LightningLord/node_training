@@ -1,0 +1,14 @@
+{
+  "name": "calculator",
+  "version": "1.0.0",
+  "description": "Calculator app",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Jason Lo",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.13.4"
+  }
+}
