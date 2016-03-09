@@ -5,11 +5,11 @@ app.set("view engine", "ejs");
 app.get('/', function(req,res){
   res.send("hello, world")
 })
-app.get('/first', function(req, res) {
+app.get('/all', function(req, res) {
   var url = 'https://myapi.profstream.com/api/23afb1/persons'
     request(url, function(error, response, body){
       console.log(body)
-      res.render("first", {
+      res.render("all", {
         users: JSON.parse(body)
       });
     })
