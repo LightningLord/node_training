@@ -1,28 +1,42 @@
-var http = require("http");
+// var http = require("http");
 
-function openFile(req, res) {
+// function openFile(req, res) {
 
-  var fs = require("fs");
+//   var fs = require("fs");
 
-  var stream = fs.createReadStream("./wordsEn.txt");
+//   var stream = fs.createReadStream("./wordsEn.txt");
 
-  stream.on("data", function(data) {
-    console.log("NEW DATA:");
-    console.log(data);
-    res.write(data)
-  });
+//   stream.on("data", function(data) {
+//     console.log("NEW DATA:");
+//     console.log(data);
+//     res.write(data)
+//   });
 
-  stream.on("open", function(){
-    console.log("Stream Started")
-    res.writeHead(200, {"Content-Type": "text/plain"});
-  })
+//   stream.on("open", function(){
+//     console.log("Stream Started")
+//     res.writeHead(200, {"Content-Type": "text/plain"});
+//   })
 
-  stream.on("end", function() {
-    console.log("Stream has no more data");
-    res.end()
-  });
-}
+//   stream.on("end", function() {
+//     console.log("Stream has no more data");
+//     res.end()
+//   });
+// }
 
-var server = http.createServer(openFile);
+// var server = http.createServer(openFile);
 
-server.listen(3000);
+// server.listen(3000);
+
+
+// pipes
+
+var fs = require("fs");
+
+var rd = fs.createReadStream("./wordsEn.txt");
+var wr = fs.createWriteStream("./newWords.txt");
+
+rd.pipe(wr);
+
+wr.on("finish", function() {
+    console.log("Write operation finished");
+});
