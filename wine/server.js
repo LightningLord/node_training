@@ -38,13 +38,14 @@ app.put('/wines/:id', function(req,res){
 })
 
 app.post('/wines', function(req,res){
+  console.log(req.body.wine)
   request({
     method: "POST",
     uri: url,
     formData: req.body.wine
   }, function(error,response,body){
     console.log(error)
-    console.log(body)
+    console.log("body: " + body)
     res.redirect("/")
   })
 })
