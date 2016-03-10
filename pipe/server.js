@@ -3,7 +3,7 @@ var fs = require("fs");
 
 
 
-var copyFile = function(file, destination){
+var copyFile = function(file, destination, onComplete){
   var rd = fs.createReadStream(file);
   var wr = fs.createWriteStream(destination);
   rd.pipe(wr);
@@ -18,11 +18,8 @@ var copyFile = function(file, destination){
     return false
   })
 
-  wr.on("finish", function() {
-    console.log("Write operation finished");
-    return true
-  });
+  wr.on("finish", onComplete)
 }
 
 
-copyFile("./wordsEn.txt","./copy.txt")
+copyFile("./wordsEn.txt","./copy.txt", function(){console.log("write finish callback")})
