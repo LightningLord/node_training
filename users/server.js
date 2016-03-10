@@ -37,9 +37,7 @@ app.post('/users', function(req,res){
 app.put('/users/:id', function(req,res){
   console.log("putting!")
   models.User.findById(req.params.id).done(function(user, error) {
-    console.log("got user: " + user.id)
-    console.log(req.params)
-    user.updateAttributes(req.params.user).done(function() {
+    user.updateAttributes(req.body.user).done(function() {
         res.redirect("/");
     });
   });
