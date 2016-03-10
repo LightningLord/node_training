@@ -58,16 +58,16 @@
     Picture
   </div>
   <div class="margin-top-20">
-    <input type="text" class="form-control" value="<%= wine.picture %>"/>
+    <input type="text" class="form-control" value="<%= wine.picture %>" name="wine[picture]"/>
   </div>
   <div class="bold margin-top-20">
     Description
   </div>
   <div class="margin-top-20">
-    <textarea class="form-control" value="<%= wine.description %>"></textarea>
+    <textarea class="form-control" name="wine[description]"><%= wine.description %></textarea>
   </div>
   <div class="margin-top-20">
-    <a href="/wines/" class="btn btn-default">Cancel</a>
+    <a href="/" class="btn btn-default">Cancel</a>
     <button type="submit" class="btn btn-success">Submit Edits</button>
   </div>
   </form>
