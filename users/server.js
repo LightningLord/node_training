@@ -28,7 +28,7 @@ app.get('/users/:id/edit', function(req,res){
 })
 
 app.post('/users', function(req,res){
-  //create a user
+  //note- don't need to pass arguments to the callback
   models.User.create(req.body.user).then(function(data, error) {
       res.redirect("/");
   });
