@@ -8,7 +8,7 @@ app.use(bodyParser.urlencoded({
 var methodOverride = require("method-override");
 app.use(methodOverride("_method"));
 app.set("view engine", "ejs");
-
+app.use(express.static('public'));
 var url = "https://myapi.profstream.com/api/4f5011/wines"
 
 app.get('/', function(req,res){
