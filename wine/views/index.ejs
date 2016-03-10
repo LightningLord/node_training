@@ -51,6 +51,9 @@
       </div>
       <div class="margin-top-20">
         <a href="/wines/<%= wine.id %>/edit" class="btn btn-default">Edit Wine</a>
+        <form method="POST" action="/wines/<%= wine.id %>?_method=delete">
+          <input type="submit" value="Delete">
+        </form>
       </div>
     </div>
   </div>

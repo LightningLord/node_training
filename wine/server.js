@@ -49,4 +49,13 @@ app.post('/wines', function(req,res){
     res.redirect("/")
   })
 })
+
+app.delete('/wines/:id', function(req,res){
+  request({
+    method: "DELETE",
+    uri: url + "/" + req.params.id
+  }, function(error,response,body){
+    res.redirect("/")
+  })
+})
 app.listen(3000)
